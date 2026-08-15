@@ -2719,24 +2719,22 @@ client.on(
 
 client.login(TOKEN);
 
-process.on("uncaughtException", (err) => {
-    console.error("❌ UNCAUGHT EXCEPTION:");
-    console.error(err);
+process.on('exit', (code) => {
+    console.log(`⚠️ Node process exiting with code: ${code}`);
 });
 
-process.on("unhandledRejection", (reason) => {
-    console.error("❌ UNHANDLED PROMISE REJECTION:");
-    console.error(reason);
+process.on('SIGTERM', () => {
+    console.log('⚠️ SIGTERM received');
 });
 
-process.on("SIGTERM", () => {
-    console.log("⚠️ Received SIGTERM - process is being terminated.");
+process.on('SIGINT', () => {
+    console.log('⚠️ SIGINT received');
 });
 
-process.on("SIGINT", () => {
-    console.log("⚠️ Received SIGINT - process is being terminated.");
+process.on('uncaughtException', (error) => {
+    console.error('❌ UNCAUGHT EXCEPTION:', error);
 });
 
-process.on("exit", (code) => {
-    console.log(⚠️ Node process exiting with code: ${code});
+process.on('unhandledRejection', (error) => {
+    console.error('❌ UNHANDLED REJECTION:', error);
 });
