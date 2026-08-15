@@ -37,17 +37,14 @@ const LAVALINK_SECURE =
 
 if (!TOKEN) {
   console.error("❌ TOKEN missing in .env");
-  process.exit(1);
 }
 
 if (!CLIENT_ID) {
   console.error("❌ CLIENT_ID missing in .env");
-  process.exit(1);
 }
 
 if (!LAVALINK_HOST) {
   console.error("❌ LAVALINK_HOST missing in .env");
-  process.exit(1);
 }
 
 // ======================================================
