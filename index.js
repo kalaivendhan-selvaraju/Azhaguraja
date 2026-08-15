@@ -1,5 +1,25 @@
 require("dotenv").config();
 
+process.on('exit', (code) => {
+    console.log(`⚠️ Node process exiting with code: ${code}`);
+});
+
+process.on('SIGTERM', () => {
+    console.log('⚠️ SIGTERM received');
+});
+
+process.on('SIGINT', () => {
+    console.log('⚠️ SIGINT received');
+});
+
+process.on('uncaughtException', (error) => {
+    console.error('❌ UNCAUGHT EXCEPTION:', error);
+});
+
+process.on('unhandledRejection', (error) => {
+    console.error('❌ UNHANDLED REJECTION:', error);
+});
+
 const {
   Client,
   GatewayIntentBits,
@@ -2718,23 +2738,3 @@ client.on(
 // ======================================================
 
 client.login(TOKEN);
-
-process.on('exit', (code) => {
-    console.log(`⚠️ Node process exiting with code: ${code}`);
-});
-
-process.on('SIGTERM', () => {
-    console.log('⚠️ SIGTERM received');
-});
-
-process.on('SIGINT', () => {
-    console.log('⚠️ SIGINT received');
-});
-
-process.on('uncaughtException', (error) => {
-    console.error('❌ UNCAUGHT EXCEPTION:', error);
-});
-
-process.on('unhandledRejection', (error) => {
-    console.error('❌ UNHANDLED REJECTION:', error);
-});
