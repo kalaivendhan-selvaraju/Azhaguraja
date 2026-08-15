@@ -223,7 +223,7 @@ client.lavalink.nodeManager.on(
 // READY
 // ======================================================
 
-client.once("ready", async () => {
+client.once("clientReady", async () => {
   console.log(
     `🤖 Logged in as ${client.user.tag}`
   );
@@ -538,7 +538,7 @@ function startMusicTimer(player) {
           timer.updating = false;
         }
       },
-      1000
+      5000
     );
 }
 
